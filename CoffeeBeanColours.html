@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress HtmlUnknownTarget -->
 <html  lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,15 +11,15 @@
 <div id="fullpage">
     <header>
         <h1>Roasted Coffee Bean Colour Picker</h1>
-   		<h3>Load an image of roasted coffee beans from the "img" subfolder. Click on a part of a coffee bean that has a colour representative of that bean (i.e., avoid any shiny parts) or in the colour sample window to select a colour and identify the roasting type.</h3>
+   		<h3>Load an image of roasted coffee beans from the "img" sub folder. Click on a part of a coffee bean that has a colour representative of that bean (i.e., avoid any shiny parts) or in the colour sample window to select a colour and identify the roasting type.</h3>
 	</header>
 	<main>
         <div id="SelectImage" style="width:622px;">
             <table style="width:100%">
                 <tr>
-                    <td width="15%"><em>Load image:</em></td>
-                    <td width="61%"><input style="float:left;" id="uploadImage" type="file" name="myPhoto" onchange="loadImageFile();" /></td>
-                    <td width="24%" align="center">
+                    <td id="loadimage"><em>Load image:</em></td>
+                    <td><input style="float:left;" id="uploadImage" type="file" name="myPhoto" onchange="loadImageFile();" /></td>
+                    <td>
                         <div id="pointerMode"></div>
                     </td> 
                 </tr>
@@ -33,16 +34,16 @@
         <div id="tblButtons" style="width:622px;">
              <table style="width:100%">
                  <tr>
-                     <td width="80%"><em>Coffee Bean Roast Colour:</em></td>
-                     <td width="20%" align="left">
-                         <button title="New comment" style="background-color:white" onClick="clearUserComments()"><img src="./img/new_note_button.png"/></button>
-                         <button title="Copy comment to clipboard" style="background-color:white" onClick="copyComments()"><img src="./img/copy_note_button.png"/></button>
+                     <td id="Roast-colour"><em>Coffee Bean Roast Colour:</em></td>
+                     <td id="buttons">
+                         <button title="New comment" style="background-color:white" onClick="clearUserComments()"><img src="./img/new_note_button.png" alt="Button for new comments"/></button>
+                         <button title="Copy comment to clipboard" style="background-color:white" onClick="copyComments()"><img src="./img/copy_note_button.png" alt="Button to copy comment to clipboard"/></button>
                      </td>
                  </tr>
              </table>
          </div>
-         <div id="Comments" style="width:622px;" align="center">
-             <textarea id="userComments" rows="6" cols="75"></textarea>
+         <div id="Comments">
+             <label for="userComments"></label><textarea id="userComments" rows="6" cols="75"></textarea>
          </div>
          <div id="dvResultsTable" style="width:622px;">
          </div>
@@ -60,7 +61,9 @@
 			<br /><br />
            </p>
        </footer>
+
        <img src="Nothing" id="imgPreview" onload="loadCanvas();" alt="Image preview" style="image-orientation: from-image; display:none" />
+        <!-- Consider removing img src to avoid error : "Cannot resolve file 'Nothing'"  -->
 </div>
 </body>
 </html>
